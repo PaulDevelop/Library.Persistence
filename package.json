@@ -1,6 +1,6 @@
 {
     "name": "Com.PaulDevelop.Library.Persistance",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Library to handle persistance.",
     "devDependencies": {
         "grunt": "~0.4.2",
