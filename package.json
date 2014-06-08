@@ -1,7 +1,7 @@
 {
-    "name": "Com.PaulDevelop.Library.Persistance",
-    "version": "0.0.2",
-    "description": "Library to handle persistance.",
+    "name": "Com.PaulDevelop.Library.Persistence",
+    "version": "0.0.3",
+    "description": "Library to handle persistence.",
     "devDependencies": {
         "grunt": "~0.4.2",
         "grunt-contrib-watch": "~0.5.3",
@@ -12,7 +12,7 @@
         "grunt-phpcs": "*"
     },
     "keywords": [
-        "php library persistance"
+        "php library persistence"
     ],
     "author": "PaulDevelop",
     "license": "MIT"

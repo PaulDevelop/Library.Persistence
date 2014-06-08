@@ -1,8 +1,8 @@
 {
-    "name": "pauldevelop/library-persistance",
-    "description": "Library to handle persistance.",
+    "name": "pauldevelop/library-persistence",
+    "description": "Library to handle persistence.",
     "keywords": ["PaulDevelop", "library"],
-    "homepage": "https://github.com/pauldevelop/library.persistance",
+    "homepage": "https://github.com/pauldevelop/library.persistence",
     "type": "library",
     "license": "MIT",
     "authors": [

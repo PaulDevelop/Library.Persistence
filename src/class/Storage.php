@@ -1,14 +1,14 @@
 <?php
 
-namespace Com\PaulDevelop\Library\Persistance;
+namespace Com\PaulDevelop\Library\Persistence;
 
 use Com\PaulDevelop\Library\Modeling\Entities\IModel;
 
 /**
  * Storage
  *
- * @package  Com\PaulDevelop\Library\Persistance
- * @category Persistance
+ * @package  Com\PaulDevelop\Library\Persistence
+ * @category Persistence
  * @author   Rüdiger Scheumann <code@pauldevelop.com>
  * @license  http://opensource.org/licenses/MIT MIT
  */

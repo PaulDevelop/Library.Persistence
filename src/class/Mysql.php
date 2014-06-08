@@ -1,6 +1,6 @@
 <?php
 
-namespace Com\PaulDevelop\Library\Persistance;
+namespace Com\PaulDevelop\Library\Persistence;
 
 use Com\PaulDevelop\Library\Modeling\Entities\IEntity;
 use Com\PaulDevelop\Library\Modeling\Entities\IModel;
@@ -10,8 +10,8 @@ use Com\PaulDevelop\Library\Modeling\Entities\PropertyCollection;
 /**
  * Mysql
  *
- * @package  Com\PaulDevelop\Library\Persistance
- * @category Persistance
+ * @package  Com\PaulDevelop\Library\Persistence
+ * @category Persistence
  * @author   Rüdiger Scheumann <code@pauldevelop.com>
  * @license  http://opensource.org/licenses/MIT MIT
  */
@@ -86,7 +86,7 @@ class Mysql implements IStorage
         );
         if (mysqli_connect_errno()) {
             throw new \Exception(
-                'Com.PaulDevelop.Library.Persistance.Constructor: Can\'t connect to mysql database server. Reason: '.
+                'Com.PaulDevelop.Library.Persistence.Constructor: Can\'t connect to mysql database server. Reason: '.
                 mysqli_connect_error().''
             );
         }
