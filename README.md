@@ -1,4 +1,4 @@
-Library.Persistance
+Library.Persistence
 ===================
 
-Library to handle persistance.
+Library to handle persistence.

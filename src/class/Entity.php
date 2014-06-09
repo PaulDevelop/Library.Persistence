@@ -2,170 +2,71 @@
 
 namespace Com\PaulDevelop\Library\Persistence;
 
-use \Com\PaulDevelop\Library\Common\Base;
-use \Com\PaulDevelop\Library\Modeling\Entities\IEntity;
-use \Com\PaulDevelop\Library\Modeling\Entities\IProperty;
-use \Com\PaulDevelop\Library\Modeling\Entities\PropertyCollection;
-
-/**
- * Entity
- *
- * @package  Com\PaulDevelop\Library\Persistence
- * @category Persistence
- * @author   Rüdiger Scheumann <code@pauldevelop.com>
- * @license  http://opensource.org/licenses/MIT MIT
- */
-class Entity extends Base implements IEntity
+class Entity implements IEntity
 {
-    #region member
-    /**
-     * Namespace.
-     *
-     * @var string
-     */
-    private $namespace;
-    /**
-     * Name.
-     *
-     * @var string
-     */
-    private $name;
-    /**
-     * Properties.
-     *
-     * @var PropertyCollection
-     */
+    private $key;
     private $properties;
-    #endregion
 
-    #region constructor
-    /**
-     * Constructor.
-     *
-     * @param string                                                        $namespace
-     * @param string                                                        $name
-     * @param \Com\PaulDevelop\Library\Modeling\Entities\PropertyCollection $properties
-     *
-     * @return Entity
-     */
-    public function __construct($namespace = '', $name = '', $properties = null)
+    public function __construct($key = '', IPropertyCollection $properties = null)
     {
-        $this->namespace = $namespace;
-        $this->name = $name;
+        $this->key = $key;
         $this->properties = $properties;
-        if ($this->properties == null) {
-            $this->properties = new PropertyCollection();
-        }
     }
-    #endregion
 
-    #region methods
-    /**
-     * HasProperty.
-     *
-     * @param string $propertyName
-     *
-     * @return boolean
-     */
-    public function hasProperty($propertyName)
+    public function setKey($key = '')
     {
-        //     --- init ---
-        $result = false;
-
-        // --- action ---
-        foreach ($this->properties as $property) {
-            if ($property->Name == $propertyName) {
-                $result = true;
-                break;
-            }
-        }
-
-        // --- return ---
-        return $result;
+        $this->key = $key;
     }
 
-    /**
-     * Get property.
-     *
-     * @param string $propertyName
-     *
-     * @return IProperty
-     */
-    public function getProperty($propertyName)
+    public function getKey()
     {
-        //     --- init ---
-        $result = null;
-
-        // --- action ---
-        foreach ($this->properties as $property) {
-            if ($property->Name == $propertyName) {
-                $result = $property;
-                break;
-            }
-        }
-
-        // --- return ---
-        return $result;
+        return $this->key;
     }
-    #endregion
 
-    #region properties
-    /**
-     * Name.
-     *
-     * @return string
-     */
-    public function getName()
+    public function setProperties(IPropertyCollection $properties = null)
     {
-        return $this->name;
+        $this->properties = $properties;
     }
 
-    /**
-     * Get namespace.
-     */
-    public function getNamespace()
-    {
-        return $this->namespace;
-    }
-
-    /**
-     * Properties.
-     *
-     * @return PropertyCollection
-     */
     public function getProperties()
     {
         return $this->properties;
     }
 
     /**
-     * Properties.
-     *
-     * @param PropertyCollection $value
+     * @param mixed $offset
+     * @param mixed $value
      */
-    public function setProperties($value = null)
+    public function offsetSet($offset = null, $value = null)
     {
-        $this->properties = $value;
+        $this->properties[$offset] = $value;
     }
 
-//    /**
-//     * Extends
-//     *
-//     * @return IEntity
-//     */
-//    public function getExtends()
-//    {
-//        return $this->_extends;
-//    }
-//
-//    /**
-//     * Extends.
-//     *
-//     * @param IEntity $value
-//     */
-//    public function setExtends($value = null)
-//    {
-//        $this->_extends = $value;
-//    }
-    #endregion
+    /**
+     * @param mixed $offset
+     *
+     * @return bool
+     */
+    public function offsetExists($offset = null)
+    {
+        return isset($this->properties[$offset]);
+    }
+
+    /**
+     * @param mixed $offset
+     */
+    public function offsetUnset($offset = null)
+    {
+        unset($this->properties[$offset]);
+    }
+
+    /**
+     * @param mixed $offset
+     *
+     * @return mixed|null
+     */
+    public function offsetGet($offset = null)
+    {
+        return isset($this->properties[$offset]) ? $this->properties[$offset] : null;
+    }
 }

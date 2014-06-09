@@ -2,51 +2,32 @@
 
 namespace Com\PaulDevelop\Library\Persistence;
 
-use \Com\PaulDevelop\Library\Modeling\Entities\IEntity;
-use \Com\PaulDevelop\Library\Modeling\Entities\EntityCollection;
-
-/**
- * IStorage
- *
- * @package  Com\PaulDevelop\Library\Persistence
- * @category Persistence
- * @author   Rüdiger Scheumann <code@pauldevelop.com>
- * @license  http://opensource.org/licenses/MIT MIT
- */
 interface IStorage
 {
-    #region methods
     /**
-     * Function Get.
+     * @param IEntity $entity
      *
-     * @param string $key String, which is XPath like
-     *
-     * @return mixed
+     * @return int
      */
-    public function get($key = '');
-
-    public function set($key = '', $value = null);
-
-    public function add($key = '', $value = null);
-
-    public function remove($key = '');
+    public function add(IEntity $entity);
 
     /**
-     * Get all entities.
-     *
-     * @return EntityCollection
-     */
-    public function getEntities();
-
-    /**
-     * Get entity.
-     *
-     * @param string $name Name of entity.
+     * @param $id
      *
      * @return IEntity
      */
-    public function getEntity($name);
-    #endregion
+    public function get($id);
+
+    /**
+     * @param         $id
+     * @param IEntity $entity
+     */
+    public function set($id, IEntity $entity);
+
+    /**
+     * @param $id
+     */
+    public function delete($id);
 }
 
 /*
