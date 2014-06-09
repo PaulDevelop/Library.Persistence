@@ -7,27 +7,27 @@ interface IStorage
     /**
      * @param IEntity $entity
      *
-     * @return int
+     * @return string $key
      */
     public function add(IEntity $entity);
 
     /**
-     * @param $id
+     * @param string $key
      *
      * @return IEntity
      */
-    public function get($id);
+    public function get($key);
 
     /**
-     * @param         $id
+     * @param string  $key
      * @param IEntity $entity
      */
-    public function set($id, IEntity $entity);
+    public function set($key, IEntity $entity);
 
     /**
-     * @param $id
+     * @param string $key
      */
-    public function delete($id);
+    public function delete($key);
 }
 
 /*
