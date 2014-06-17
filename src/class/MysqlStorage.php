@@ -5,12 +5,13 @@ namespace Com\PaulDevelop\Library\Persistence;
 /**
  * MysqlStorage
  *
- * @package Com\PaulDevelop\Library\Persistence
+ * @package  Com\PaulDevelop\Library\Persistence
  * @category Application
  * @author   Rüdiger Scheumann <code@pauldevelop.com>
  * @license  http://opensource.org/licenses/MIT MIT
  */
-abstract class MysqlStorage {
+abstract class MysqlStorage
+{
     private $host;
     private $user;
     private $password;
@@ -26,7 +27,8 @@ abstract class MysqlStorage {
         $this->database = $database;
     }
 
-    protected function getConnection() {
+    protected function getConnection()
+    {
         if (self::$connection == null) {
             self::$connection = new \mysqli(
                 $this->host,
@@ -39,3 +41,12 @@ abstract class MysqlStorage {
         return self::$connection;
     }
 }
+
+// IStorage
+//   add/get/set/remove/queryPath
+
+// MysqlStorage
+
+// CategoryPeer
+
+// CategoryMysqlStorage
