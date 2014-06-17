@@ -2,7 +2,20 @@
 
 namespace Com\PaulDevelop\Library\Persistence;
 
-class Entity implements IEntity
+use Com\PaulDevelop\Library\Common\Base;
+
+/**
+ * Entity
+ *
+ * @package Com\PaulDevelop\Library\Persistence
+ * @category Application
+ * @author   Rüdiger Scheumann <code@pauldevelop.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ *
+ * @property string $Key
+ * @property IPropertyCollection $Properties
+ */
+class Entity extends Base implements IEntity
 {
     private $key;
     private $properties;
@@ -13,7 +26,7 @@ class Entity implements IEntity
         $this->properties = $properties;
     }
 
-    public function setKey($key = '')
+    protected function setKey($key = '')
     {
         $this->key = $key;
     }
@@ -23,7 +36,7 @@ class Entity implements IEntity
         return $this->key;
     }
 
-    public function setProperties(IPropertyCollection $properties = null)
+    protected function setProperties(IPropertyCollection $properties = null)
     {
         $this->properties = $properties;
     }

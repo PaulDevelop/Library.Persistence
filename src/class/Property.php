@@ -2,7 +2,20 @@
 
 namespace Com\PaulDevelop\Library\Persistence;
 
-class Property implements IProperty
+use Com\PaulDevelop\Library\Common\Base;
+
+/**
+ * Property
+ *
+ * @package Com\PaulDevelop\Library\Persistence
+ * @category Application
+ * @author   Rüdiger Scheumann <code@pauldevelop.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ *
+ * @property string $Name
+ * @property string $Value
+ */
+class Property extends Base implements IProperty
 {
     private $name;
     private $value;
@@ -13,7 +26,7 @@ class Property implements IProperty
         $this->value = $value;
     }
 
-    public function setName($name = '')
+    protected function setName($name = '')
     {
         $this->name = $name;
     }
@@ -23,7 +36,7 @@ class Property implements IProperty
         return $this->name;
     }
 
-    public function setValue($value = '')
+    protected function setValue($value = '')
     {
         $this->value = $value;
     }
