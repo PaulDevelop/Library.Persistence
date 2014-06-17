@@ -41,12 +41,3 @@ abstract class MysqlStorage
         return self::$connection;
     }
 }
-
-// IStorage
-//   add/get/set/remove/queryPath
-
-// MysqlStorage
-
-// CategoryPeer
-
-// CategoryMysqlStorage
