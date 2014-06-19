@@ -9,6 +9,10 @@ namespace Com\PaulDevelop\Library\Persistence\PathQuery;
  * @category Application
  * @author   Rüdiger Scheumann <code@pauldevelop.com>
  * @license  http://opensource.org/licenses/MIT MIT
+ *
+ * @property int From
+ * @property int Count
+ * @property OrderCollection $OrderCollection
  */
 class ViewParameter
 {
