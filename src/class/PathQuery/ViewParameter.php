@@ -2,6 +2,8 @@
 
 namespace Com\PaulDevelop\Library\Persistence\PathQuery;
 
+use Com\PaulDevelop\Library\Common\Base;
+
 /**
  * Order
  *
@@ -14,7 +16,7 @@ namespace Com\PaulDevelop\Library\Persistence\PathQuery;
  * @property int Count
  * @property OrderCollection $OrderCollection
  */
-class ViewParameter
+class ViewParameter extends Base
 {
     #region member
     /**
