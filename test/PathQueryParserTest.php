@@ -1,6 +1,6 @@
 <?php
 
-namespace Com\PaulDevelop\Library\Persistance;
+namespace Com\PaulDevelop\Library\Persistence;
 
 use Com\PaulDevelop\Library\Persistence\PathQuery\Compositions;
 use Com\PaulDevelop\Library\Persistence\PathQuery\Filter;
