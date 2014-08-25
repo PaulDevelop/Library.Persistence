@@ -33,6 +33,12 @@ interface IStorage
     public function set($key, IEntity $entity);
 
     /**
+     * @param int      $key
+     * @param Property $property
+     */
+    public function setProperty($key, Property $property);
+
+    /**
      * @param string $key
      */
     public function remove($key);
