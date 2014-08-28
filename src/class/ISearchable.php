@@ -2,6 +2,8 @@
 
 namespace Com\PaulDevelop\Library\Persistence;
 
+use Com\PaulDevelop\Library\Persistence\Search\SortOrder;
+
 /**
  * ISearchable
  *
@@ -13,9 +15,14 @@ namespace Com\PaulDevelop\Library\Persistence;
 interface ISearchable
 {
     /**
-     * @param string $keyword
+     * @param string    $keyword
+     *
+     * @param int       $from
+     * @param int       $count
+     * @param Property  $orderBy
+     * @param SortOrder $order
      *
      * @return IEntityCollection
      */
-    public function search($keyword = '');
+    public function search($keyword = '', $from = 0, $count = 0, Property $orderBy = null, SortOrder $order = null);
 }
