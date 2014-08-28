@@ -2,7 +2,7 @@
 
 namespace Com\PaulDevelop\Library\Persistence;
 
-use Com\PaulDevelop\Library\Persistence\Search\SortOrder;
+use Com\PaulDevelop\Library\Persistence\Search\SortOrders;
 
 /**
  * ISearchable
@@ -15,14 +15,14 @@ use Com\PaulDevelop\Library\Persistence\Search\SortOrder;
 interface ISearchable
 {
     /**
-     * @param string    $keyword
+     * @param string     $keyword
      *
-     * @param int       $from
-     * @param int       $count
-     * @param Property  $orderBy
-     * @param SortOrder $order
+     * @param int        $from
+     * @param int        $count
+     * @param Property   $orderBy
+     * @param SortOrders $order
      *
      * @return IEntityCollection
      */
-    public function search($keyword = '', $from = 0, $count = 0, Property $orderBy = null, SortOrder $order = null);
+    public function search($keyword = '', $from = 0, $count = 0, Property $orderBy = null, SortOrders $order = null);
 }
