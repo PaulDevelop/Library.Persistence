@@ -25,4 +25,18 @@ interface IPathQueryable
      * @return int
      */
     public function queryCount($path = '');
+
+    /**
+     * @param string $path
+     *
+     * @return IEntityCollection
+     */
+    public function searchPath($path = '');
+
+    /**
+     * @param string $path
+     *
+     * @return int
+     */
+    public function searchCount($path = '');
 }
