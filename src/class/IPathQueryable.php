@@ -41,4 +41,9 @@ interface IPathQueryable
      * @return int
      */
     public function searchCount($keyword = '', $path = '');
+
+    /**
+     * @param string $path
+     */
+    public function removePath($path = '');
 }
