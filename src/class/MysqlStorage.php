@@ -37,6 +37,7 @@ abstract class MysqlStorage
                 $this->database
             );
         }
+        self::$connection->set_charset('utf8mb4');
 
         return self::$connection;
     }
