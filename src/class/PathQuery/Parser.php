@@ -130,7 +130,18 @@ abstract class Parser
                         continue;
                     } else {
                         throw new \Exception(
-                            'LibraryPersistence.PathQuery.Parser: Unkown operator '.$currentChar.$nextChar
+                            'LibraryPersistence.PathQuery.Parser: Unknown operator '.$currentChar.$nextChar
+                        );
+                    }
+                } elseif ($currentChar == ':') {
+                    if ($nextChar == '=') {
+                        $currentOperator = $currentChar.$nextChar;
+                        $i++;
+                        $keyIsOpen = false;
+                        continue;
+                    } else {
+                        throw new \Exception(
+                            'LibraryPersistence.PathQuery.Parser: Unknown operator '.$currentChar.$nextChar
                         );
                     }
                 }
@@ -141,12 +152,17 @@ abstract class Parser
                 $stringIsOpen = false;
                 continue;
             } elseif (!$stringIsOpen && $currentChar == ',') {
+                $isNull = false;
+                if ($currentOperator == ':=') {
+                    $isNull = true;
+                }
                 $result->Add(
                     new Filter(
                         trim($currentKey, '@')."",
                         $currentOperator,
                         $currentValue,
-                        Compositions::_AND
+                        Compositions::_AND,
+                        $isNull
                     )
                 );
 
@@ -166,12 +182,17 @@ abstract class Parser
         }
 
         if ($currentKey != '') {
+            $isNull = false;
+            if ($currentOperator == ':=') {
+                $isNull = true;
+            }
             $result->Add(
                 new Filter(
                     trim($currentKey, '@')."",
                     $currentOperator,
                     $currentValue,
-                    Compositions::_AND
+                    Compositions::_AND,
+                    $isNull
                 )
             );
         }

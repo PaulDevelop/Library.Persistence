@@ -16,6 +16,7 @@ use Com\PaulDevelop\Library\Common\Base;
  * @property string $Operator
  * @property string $Value
  * @property string $Composition
+ * @property string $IsNull
  */
 class Filter extends Base
 {
@@ -44,15 +45,22 @@ class Filter extends Base
      * @var string
      */
     private $composition;
+    /**
+     * Is null.
+     *
+     * @var bool
+     */
+    private $isNull;
     #endregion
 
     #region constructor
-    public function __construct($propertyName = '', $operator = '', $value = '', $composition = '')
+    public function __construct($propertyName = '', $operator = '', $value = '', $composition = '', $isNull = false)
     {
         $this->propertyName = $propertyName;
         $this->operator = $operator;
         $this->value = $value;
         $this->composition = $composition;
+        $this->isNull = $isNull;
     }
     #endregion
 
@@ -78,6 +86,11 @@ class Filter extends Base
     protected function getComposition()
     {
         return $this->composition;
+    }
+
+    protected function getIsNull()
+    {
+        return $this->isNull;
     }
     #endregion
 }
